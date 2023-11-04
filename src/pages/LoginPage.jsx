@@ -1,23 +1,34 @@
 import { Link } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
-
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
+import { FaEyeSlash, FaEye } from 'react-icons/fa';
 
 const LoginPage = () => {
 
+    const { LoginUser } = useContext(AuthContext)
+    const [showpassword, setshowpassword] = useState(false)
+
 
     const HandleLogin = (e) => {
-
         e.preventDefault();
 
         const form = e.target;
-        const name = form.name.value
+        const email = form.email.value
         const password = form.password.value
 
-        console.log(name, password)
+        // console.log(email, password)
+
+        LoginUser(email, password)
+            .then(() => {
+                toast.success("successfully login")
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
     }
-
-
 
 
     return (
@@ -37,13 +48,15 @@ const LoginPage = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="name" placeholder="email" className="input input-bordered" required />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                <input type={showpassword ? 'text' : "password"} name="password" placeholder="password" className="input input-bordered" required />
+                                <span className="absolute top-[52px] right-3" onClick={() => setshowpassword(!showpassword)}>{showpassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</span>
+
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
