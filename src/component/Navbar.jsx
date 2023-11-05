@@ -16,7 +16,7 @@ const Navbar = () => {
     const NavLinks = <>
 
         <NavLink to={'/'}> <li className="hover:bg-lime-600 rounded-lg "><p className="font-medium"> Home</p></li></NavLink>
-        <NavLink to={'/add products'}><li className="hover:bg-lime-600 rounded-lg "> <p className="font-medium">Available Foods </p></li></NavLink>
+        <NavLink to={'/availablefoods'}><li className="hover:bg-lime-600 rounded-lg "> <p className="font-medium">Available Foods </p></li></NavLink>
         <NavLink to={'/addfood'}><li className="hover:bg-lime-600 rounded-lg "><p className="font-medium"> Add Food</p></li></NavLink>
         <NavLink to={'/My Cart'}><li className="hover:bg-lime-600 rounded-lg "><p className="font-medium"> Manage My Foods </p></li></NavLink>
         <NavLink to={'/My Cart'}><li className="hover:bg-lime-600 rounded-lg "><p className="font-medium"> My Food Request</p></li></NavLink>
@@ -46,9 +46,9 @@ const Navbar = () => {
 
 
 
-                {/* {
+                {
                     user?.displayName ? <p className='  p-2 font-medium text-sm '>{user.displayName}</p> : <p></p>
-                } */}
+                }
 
 
                 {
