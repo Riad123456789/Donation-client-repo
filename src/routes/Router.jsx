@@ -18,7 +18,7 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <HomePage></HomePage>,
-                loader: () => fetch('http://localhost:5000/api/v1/FeaturedFoods')
+                loader: () => fetch('http://localhost:5000/FeaturedFoods')
             },
             {
                 path: "/addfood",
@@ -26,7 +26,8 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/availablefoods",
-                element: <AvailableFoodsPage></AvailableFoodsPage>
+                element: <AvailableFoodsPage></AvailableFoodsPage>,
+                loader:()=>fetch('http://localhost:5000/FeaturedFoods')
             },
             {
                 path: "/contact",
