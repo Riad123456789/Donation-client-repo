@@ -1,12 +1,25 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
 import FeaturedFoodCard from "../allcard/FeaturedFoodCard";
+import useAxios from "../hookes/useAxios";
+import { useQuery } from "@tanstack/react-query";
 
 const HomePage = () => {
+    
+    const axios = useAxios()
 
-    const LoaderData = useLoaderData()
+    const getfoodData = async () => {
+        const res = await axios.get('/foodName?food_name=&sortField=food_quantity&sortOrder=desc')
+        return res;
+    }
 
+    const { data } = useQuery({
+        queryKey: ['AddFooddata', Date],
+        queryFn: getfoodData,
+    })
+
+    // console.log(data.data)
 
     return (
         <div className="max-w-7xl mx-auto">
@@ -14,7 +27,7 @@ const HomePage = () => {
 
             <div className="grid gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
                 {
-                    LoaderData?.slice(0, 6).map(data => <FeaturedFoodCard key={data._id} FooData={data}></FeaturedFoodCard>)
+                    data?.data?.slice(0, 6).map(singleData => <FeaturedFoodCard key={singleData._id} FooData={singleData}></FeaturedFoodCard>)
                 }
             </div>
 

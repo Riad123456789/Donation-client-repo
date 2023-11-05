@@ -12,7 +12,9 @@ const AddFoodPage = () => {
 
         e.preventDefault();
         const form = e.target;
-
+        const foodName = {
+            foodName: form.foodName?.value || "",
+        }
         const AddFood = {
             foodName: form.foodName?.value || "",
             foodImage: form.foodImage?.value || "",
@@ -41,10 +43,19 @@ const AddFoodPage = () => {
                 }
             })
 
+        fetch('http://localhost:5000/foodName', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(foodName)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
 
     }
-
-
 
 
     return (
