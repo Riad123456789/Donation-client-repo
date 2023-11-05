@@ -26,7 +26,7 @@ const LoginPage = () => {
                 toast.success("successfully login")
             })
             .catch(error => {
-                toast.error(error.message);
+                toast.error(error.message.slice(10, 48));
             })
     }
 
@@ -44,23 +44,24 @@ const LoginPage = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={HandleLogin} className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email :</label>
+                                <input type="email" name="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email..." required="" />
                             </div>
-                            <div className="form-control relative">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type={showpassword ? 'text' : "password"} name="password" placeholder="password" className="input input-bordered" required />
-                                <span className="absolute top-[52px] right-3" onClick={() => setshowpassword(!showpassword)}>{showpassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</span>
 
+                            <div className="relative">
+                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Password :</label>
+                                <input type={showpassword ? 'text' : "password"}
+                                    name="password"
+                                    placeholder="••••••••"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required="" />
+                                <span className="absolute top-10 right-3" onClick={() => setshowpassword(!showpassword)}>{showpassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</span>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
+
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>

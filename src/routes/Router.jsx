@@ -6,6 +6,7 @@ import HomePage from "../pages/HomePage";
 import RegisterPage from "../pages/RegisterPage";
 import ContactPage from "../pages/ContactPage";
 import LoginPage from "../pages/LoginPage";
+import AddFoodPage from "../pages/AddFoodPage";
 
 
 const Router = createBrowserRouter([
@@ -15,7 +16,12 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <HomePage></HomePage>
+                element: <HomePage></HomePage>,
+                loader: () => fetch('http://localhost:5000/api/v1/FeaturedFoods')
+            },
+            {
+                path: "/addfood",
+                element: <AddFoodPage></AddFoodPage>
             },
             {
                 path: "/contact",
@@ -27,8 +33,8 @@ const Router = createBrowserRouter([
                 element: <RegisterPage></RegisterPage>
             },
             {
-                path:"/login",
-                element:<LoginPage></LoginPage>
+                path: "/login",
+                element: <LoginPage></LoginPage>
             }
         ]
     },

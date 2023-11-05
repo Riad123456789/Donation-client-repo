@@ -11,7 +11,7 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 
 const RegisterPage = () => {
 
-    const { CreatUser, googleLogin } = useContext(AuthContext);
+    const { CreatUser, googleLogin, handleupdateProfile } = useContext(AuthContext);
     const [showpassword, setshowpassword] = useState(false)
     const navigat = useNavigate();
 
@@ -26,13 +26,30 @@ const RegisterPage = () => {
         // console.log(name, password, email, photo)
 
 
+        // if (password.length < 8) {
+        //     alert('password less than 8 characters')
+        // } else if (!/[A-Z]/.test(password)) {
+        //     alert('password should have a one uppercase characters')
+        // } else if (!/[a-z]/.test(password)) {
+        //     alert('password should have a one lowercase characters')
+        // } else if (!/[@,$,#,%,&]/.test(password)) {
+        //     alert('password should have a one spaical characters')
+        // }
+
+
         CreatUser(email, password, name, photo)
             .then(() => {
-                toast.success('register success')
-                navigat("/")
+
+                handleupdateProfile(name, photo)
+                    .then(() => {
+
+                        toast.success('successfully register')
+                        navigat("/")
+
+                    })
             })
             .catch((error) => {
-                toast.error(error.message)
+                toast.error(error.message.slice(10, 47))
             })
 
     }
@@ -45,7 +62,10 @@ const RegisterPage = () => {
                 navigat("/")
             }
             )
-            .catch()
+            .catch((error) => {
+
+                toast.error(error.message.slice(10, 50))
+            })
     }
 
 
