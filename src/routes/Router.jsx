@@ -9,6 +9,7 @@ import LoginPage from "../pages/LoginPage";
 import AddFoodPage from "../pages/AddFoodPage";
 import AvailableFoodsPage from "../pages/AvailableFoodsPage";
 import SingleFooddetailspage from "../pages/SingleFooddetailspage";
+import ManagefoodPage from "../pages/ManagefoodPage";
 
 
 const Router = createBrowserRouter([
@@ -33,8 +34,12 @@ const Router = createBrowserRouter([
             {
                 path: "/SingleFooddetails/:id",
                 element: <SingleFooddetailspage></SingleFooddetailspage>,
-                loader: ({params}) => fetch(`http://localhost:5000/FeaturedFoodss/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/FeaturedFoodss/${params.id}`)
 
+            },
+            {
+                path: "/ManagefoodPage",
+                element: <ManagefoodPage></ManagefoodPage>
             },
             {
                 path: "/contact",
