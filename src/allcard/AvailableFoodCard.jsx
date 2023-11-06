@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 
 const AvailableFoodCard = ({ AvailableFoodData }) => {
-    const { foodName, food_quantity } = AvailableFoodData
+    const {_id, foodName, food_quantity } = AvailableFoodData
 
 
-
+// console.log(_id)
     return (
         <div className="card mx-auto bg-base-100 shadow-xl">
             <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
@@ -19,7 +19,7 @@ const AvailableFoodCard = ({ AvailableFoodData }) => {
                     <div className="badge badge-outline">{food_quantity}</div>
                     <div className="badge badge-outline">Products</div>
                 </div>
-                <Link to={'/SingleFooddetails'}> <button className='btn btn-primary'>View Detail</button></Link>
+                <Link to={`/SingleFooddetails/${_id}`}> <button className='btn btn-primary'>View Detail</button></Link>
             </div>
         </div>
     );
