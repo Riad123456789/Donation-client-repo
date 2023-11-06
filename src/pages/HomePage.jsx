@@ -10,7 +10,7 @@ const HomePage = () => {
     const axios = useAxios()
 
     const getfoodData = async () => {
-        const res = await axios.get('/foodName?food_name=&sortField=food_quantity&sortOrder=desc')
+        const res = await axios.get('/foodName?foodName=&sortField=food_quantity&sortOrder=desc')
         return res;
     }
 
