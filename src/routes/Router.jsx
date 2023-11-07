@@ -10,6 +10,8 @@ import AddFoodPage from "../pages/AddFoodPage";
 import AvailableFoodsPage from "../pages/AvailableFoodsPage";
 import SingleFooddetailspage from "../pages/SingleFooddetailspage";
 import ManagefoodPage from "../pages/ManagefoodPage";
+import ManageSingleFoodPage from "../pages/ManageSingleFoodPage";
+import MyFoodRequestPage from "../pages/MyFoodRequestPage";
 
 
 const Router = createBrowserRouter([
@@ -40,6 +42,16 @@ const Router = createBrowserRouter([
             {
                 path: "/ManagefoodPage",
                 element: <ManagefoodPage></ManagefoodPage>
+
+            },
+            {
+                path: '/ManageSingleFoodPage',
+                element: <ManageSingleFoodPage></ManageSingleFoodPage>,
+                // loader: () => fetch('http://localhost:5000/requestedFood')
+            },
+            {
+                path: '/Myfoodrequest',
+                element: <MyFoodRequestPage></MyFoodRequestPage>
             },
             {
                 path: "/contact",

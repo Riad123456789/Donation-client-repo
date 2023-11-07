@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink to={'/availablefoods'}><li className="hover:bg-lime-600 rounded-lg "> <p className="font-medium">Available Foods </p></li></NavLink>
         <NavLink to={'/addfood'}><li className="hover:bg-lime-600 rounded-lg "><p className="font-medium"> Add Food</p></li></NavLink>
         <NavLink to={'/ManagefoodPage'}><li className="hover:bg-lime-600 rounded-lg "><p className="font-medium"> Manage My Foods </p></li></NavLink>
-        <NavLink to={'/My Cart'}><li className="hover:bg-lime-600 rounded-lg "><p className="font-medium"> My Food Request</p></li></NavLink>
+        <NavLink to={'/Myfoodrequest'}><li className="hover:bg-lime-600 rounded-lg "><p className="font-medium"> My Food Request</p></li></NavLink>
         <NavLink to={'/contact'}><li className="hover:bg-lime-600 rounded-lg "><p className="font-medium">Contact</p></li></NavLink>
     </>
 

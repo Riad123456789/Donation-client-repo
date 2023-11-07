@@ -8,9 +8,20 @@ const SingleFooddetailspage = () => {
 
     const singleData = useLoaderData()
 
-    const { foodName, DonatorName, PickupLocation, AdditionalNotes } = singleData
+    const { 
+     
+        foodName,
+        foodImage,
+        DonatorName,
+        DonatorImage,
+        DonatorEmail,
+        ExpiredDate,
+        FoodQuantity,
+        PickupLocation,
+        AdditionalNotes
+    } = singleData
 
-    // console.log(singleData)
+    console.log(singleData,DonatorEmail)
 
     const handlerequest = (e) => {
         e.preventDefault()
@@ -21,7 +32,19 @@ const SingleFooddetailspage = () => {
 
         // console.log(notes, money, foodName, DonatorName, PickupLocation)
 
-        const requestFood = { notes, money, foodName, DonatorName, PickupLocation }
+        const requestFood = {
+       
+            notes,
+            money,
+            foodName,
+            foodImage,
+            DonatorName,
+            DonatorImage,
+            DonatorEmail,
+            ExpiredDate,
+            FoodQuantity,
+            PickupLocation
+        }
 
         fetch('http://localhost:5000/RequestFood', {
             method: "POST",
