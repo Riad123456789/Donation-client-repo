@@ -17,7 +17,7 @@ const AvailableFoodsPage = () => {
     // console.log(Foodname)
 
     const getfoodData = async () => {
-        const res = await axios.get(`/foodName?sortField=food_quantity&sortOrder=${Date}&foodName=${Foodname}`)
+        const res = await axios.get(`/foodName?sortField=ExpiredDate&sortOrder=${Date}&foodName=${Foodname}`)
         return res;
     }
 

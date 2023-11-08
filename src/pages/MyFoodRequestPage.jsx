@@ -8,29 +8,17 @@ import Footer from '../component/Footer';
 
 const MyFoodRequestPage = () => {
 
-
-
-
     const { user } = useContext(AuthContext)
 
-    // http://localhost:5000/requestedFood/request?DonatorEmail=riad80717@gmail.com
-    // console.log(user.email)
-
-
-
     const ManageFood = async () => {
-        const res = await axios.get(`http://localhost:5000/requestedFood/request?DonatorEmail=${user?.email}`)
+        const res = await axios.get(`http://localhost:5000/requestedFood/request?RequesterEmail=${user?.email}`)
         return res;
     }
     const { data, isLoading, refetch } = useQuery({
-        queryKey: ['ManageFood',user],
+        queryKey: ['ManageFood', user],
         queryFn: ManageFood,
     })
 
-// if(isLoading){
-
-//     return <p>loading......</p>
-// }
 
     // console.log(data?.data)
 
@@ -39,7 +27,7 @@ const MyFoodRequestPage = () => {
             <Navbar></Navbar>
             <div className='grid md:grid-cols-3 gap-5'>
                 {
-                    data?.data?.map(item => <MyRequestCard key={item._d}  refetch={refetch} myrequestData={item} ></MyRequestCard>)
+                    data?.data?.map(item => <MyRequestCard key={item._d} refetch={refetch} myrequestData={item} ></MyRequestCard>)
                 }
             </div>
 
