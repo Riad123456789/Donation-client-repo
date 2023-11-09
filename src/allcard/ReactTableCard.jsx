@@ -25,7 +25,7 @@ const ReactTableCard = ({ cardData, refetch }) => {
 
 
     const handeldeleted = (_id) => {
-        axios.delete(`http://localhost:5000/FeaturedFoods/${_id}`)
+        axios.delete(` https://server-site-project-q1s7vyni8-riads-projects-d9eea291.vercel.app/FeaturedFoods/${_id}`)
             .then(res => {
                 // console.log(res.data)
 

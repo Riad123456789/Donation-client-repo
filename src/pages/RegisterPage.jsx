@@ -17,9 +17,9 @@ const RegisterPage = () => {
     const navigat = useNavigate();
 
 
-    if (loading) {
-        return <span className="loading loading-spinner loading-md "></span>
-    }
+    // if (loading) {
+    //     return <span className="loading loading-spinner loading-md "></span>
+    // }
 
 
 

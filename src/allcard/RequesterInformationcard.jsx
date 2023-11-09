@@ -36,7 +36,7 @@ const RequesterInformationcard = ({ fooditem, refetch, isFetching, isLoading }) 
         const updateFood = {
             FoodStatus: "delivered",
         }
-        fetch(`http://localhost:5000/FeaturedFoods/${FoodId}`, {
+        fetch(` https://server-site-project-q1s7vyni8-riads-projects-d9eea291.vercel.app/FeaturedFoods/${FoodId}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

@@ -35,14 +35,14 @@ const Router = createBrowserRouter([
             {
                 path: "/availablefoods",
                 element: <AvailableFoodsPage></AvailableFoodsPage>,
-                loader: () => fetch("http://localhost:5000/FeaturedFoods"),
+                loader: () => fetch(" https://server-site-project-q1s7vyni8-riads-projects-d9eea291.vercel.app/FeaturedFoods"),
                 errorElement: <Errorpage></Errorpage>
 
             },
             {
                 path: "/SingleFooddetails/:id",
                 element: <PrivateRoute><SingleFooddetailspage></SingleFooddetailspage></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/FeaturedFoodss/${params.id}`),
+                loader: ({ params }) => fetch(` https://server-site-project-q1s7vyni8-riads-projects-d9eea291.vercel.app/FeaturedFoodss/${params.id}`),
                 errorElement: <Errorpage></Errorpage>
 
             },
@@ -56,19 +56,19 @@ const Router = createBrowserRouter([
             {
                 path: '/manage/:id',
                 element: <PrivateRoute><ManageSingleFoodPage></ManageSingleFoodPage></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/FeaturedFoodss/${params.id}`),
+                loader: ({ params }) => fetch(` https://server-site-project-q1s7vyni8-riads-projects-d9eea291.vercel.app/FeaturedFoodss/${params.id}`),
                 errorElement: <Errorpage></Errorpage>
             },
             {
                 path: '/Myfoodrequest',
                 element: <PrivateRoute><MyFoodRequestPage></MyFoodRequestPage></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/requestedFood'),
+                loader: () => fetch(' https://server-site-project-q1s7vyni8-riads-projects-d9eea291.vercel.app/requestedFood'),
                 errorElement: <Errorpage></Errorpage>
             },
             {
                 path: "/EditPage/:id",
                 element: <PrivateRoute><EditPage></EditPage></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/FeaturedFoodss/${params.id}`),
+                loader: ({ params }) => fetch(` https://server-site-project-q1s7vyni8-riads-projects-d9eea291.vercel.app/FeaturedFoodss/${params.id}`),
                 errorElement: <Errorpage></Errorpage>
             },
             {

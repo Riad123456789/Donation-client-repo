@@ -60,7 +60,7 @@ const SingleFooddetailspage = () => {
 
         }
 
-        fetch('http://localhost:5000/RequestFood', {
+        fetch(' https://server-site-project-q1s7vyni8-riads-projects-d9eea291.vercel.app/RequestFood', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
