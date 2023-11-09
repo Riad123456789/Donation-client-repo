@@ -47,27 +47,8 @@ const MyRequestCard = ({ myrequestData, refetch }) => {
 
     return (
         <div className='p-10'>
-            {/* <div className="card w-96 mx-auto bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="card-title"></h2>
-                    <h2 className="card-title">{DonationMoney} tk</h2>
-                    <h2 className="card-title">{PickupLocation}</h2>
-                    <h2 className="card-title">{ExpiredDate} days</h2>
-                    <h2 className="card-title">{DonatorEmail}</h2>
-                    <h2 className="card-title">{RequesterEmail}</h2>
-                    <h2 className="card-title">{RequestDate}</h2>
-                    <h2 className="card-title">{FoodStatus}</h2>
 
-
-                  
-                </div>
-            </div> */}
-
-
-
-
-
-            <div className="card lg:card-side bg-base-100 shadow-xl">
+            <div className="card lg:card-side bg-base-100 border shadow-xl">
                 {/* <figure><img src="/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album" /></figure> */}
                 <div className="card-body">
                     <h2 className="card-title">DonatorName: {DonatorName}</h2>
@@ -80,9 +61,6 @@ const MyRequestCard = ({ myrequestData, refetch }) => {
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     );
 };
