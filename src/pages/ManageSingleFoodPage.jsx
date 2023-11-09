@@ -4,6 +4,7 @@ import Navbar from '../component/Navbar';
 import { useLoaderData } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import RequesterInformationcard from '../allcard/RequesterInformationcard';
+import { Helmet } from 'react-helmet-async';
 
 
 const ManageSingleFoodPage = () => {
@@ -45,13 +46,18 @@ const ManageSingleFoodPage = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
+            <Helmet><title>  FOOD DONATION | MANAGE SINGLE FOOD</title></Helmet>
+            <div className='w-11/12 mx-auto'>
+                <Navbar></Navbar>
+            </div>
 
-            {
-                data?.data.map(item => <RequesterInformationcard key={item._id} info={item} refetch={refetch}  ></RequesterInformationcard>)
-            }
+            <div className='p-20'>
+                {
+                    data?.data.map(item => <RequesterInformationcard key={item._id} info={item} refetch={refetch}  ></RequesterInformationcard>)
+                }
 
-            <Footer></Footer>
+            </div>
+
         </div>
     );
 };

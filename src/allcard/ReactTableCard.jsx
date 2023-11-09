@@ -25,7 +25,7 @@ const ReactTableCard = ({ cardData, refetch }) => {
     const handeldeleted = (_id) => {
         axios.delete(`http://localhost:5000/FeaturedFoods/${_id}`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
 
                 if (res?.data?.deletedCount > 0) {
                     toast.success('deleted successfully')

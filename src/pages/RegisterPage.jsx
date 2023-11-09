@@ -125,7 +125,7 @@ const RegisterPage = () => {
                     </div>
                 </div>
             </section>
-            <Footer></Footer>
+       
         </div>
     );
 };

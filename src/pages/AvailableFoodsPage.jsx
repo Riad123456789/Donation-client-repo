@@ -1,10 +1,10 @@
 import Navbar from '../component/Navbar';
-import Footer from '../component/Footer';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import useAxios from '../hookes/useAxios';
 import AvailableFoodCard from '../allcard/AvailableFoodCard';
 import { useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AvailableFoodsPage = () => {
 
@@ -17,7 +17,7 @@ const AvailableFoodsPage = () => {
     // console.log(Foodname)
 
     const getfoodData = async () => {
-        const res = await axios.get(`/foodName?sortField=ExpiredDate&sortOrder=${Date}&foodName=${Foodname}`)
+        const res = await axios.get(`/foodName?FoodStatus=available&sortField=ExpiredDate&sortOrder=${Date}&foodName=${Foodname}`)
         return res;
     }
 
@@ -37,34 +37,41 @@ const AvailableFoodsPage = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
+            <Helmet><title> FOOD DONATION | AVAILABLE FOOD</title></Helmet>
 
-            <div className="navbar bg-red-500 p-3">
-                <div className="flex-1">
-                    <select onChange={(e) => Setfoodname(e.target.value)} className="input input-bordered">
-                        <option disabled selected > choose one  </option>
-                        {LoaderData
-                            .map(item =>  (
-                                <option key={item._id}>{item.foodName}</option>
-                            ))
-                        }
-                    </select>
+            <div className='w-11/12 mx-auto'>
+                <Navbar></Navbar>
+            </div>
+
+            <div className='p-8'>
+
+                <div className="navbar  bg-red-500 p-5">
+                    <div className="flex-1">
+                        <select onChange={(e) => Setfoodname(e.target.value)} className="input input-bordered">
+                            <option disabled selected > choose one  </option>
+                            {LoaderData
+                                .map(item => (
+                                    <option key={item._id}>{item.foodName}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                    <div className="flex-none">
+                        <select onChange={(e) => setDate(e.target.value)} className="input input-bordered">
+                            <option disabled selected > SORTING  </option>
+                            <option value="asc"> LOW to HIGH </option>
+                            <option value="desc"> HIGH to LOW </option>
+                        </select>
+                    </div>
                 </div>
-                <div className="flex-none">
-                    <select onChange={(e) => setDate(e.target.value)} className="input input-bordered">
-                        <option disabled selected > Sorting  </option>
-                        <option value="asc"> Link 2 </option>
-                        <option value="desc"> Link 3 </option>
-                    </select>
+
+                <div className='grid mt-24 grid-cols-1  gap-10 md:grid-cols-2  lg:grid-cols-3'>
+                    {
+                        data?.data?.map(singleData => <AvailableFoodCard key={singleData._id} AvailableFoodData={singleData} ></AvailableFoodCard>)
+                    }
                 </div>
             </div>
 
-            <div className='grid mt-24  gap-10 grid-cols-2 md:grid-cols-2 lg:grid-cols-3'>
-                {
-                    data?.data?.map(singleData => <AvailableFoodCard key={singleData._id} AvailableFoodData={singleData} ></AvailableFoodCard>)
-                }
-            </div>
-            <Footer></Footer>
         </div>
     );
 };

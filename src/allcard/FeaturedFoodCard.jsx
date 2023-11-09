@@ -21,26 +21,30 @@ const FeaturedFoodCard = ({ FooData }) => {
     // console.log(FooData)
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <figure><img className="w-80 h-60" src={foodImage} alt="" /></figure>
-            <div className="avatar">
-                <div className="w-12 rounded-full">
-                    <img src={DonatorImage} />
-                </div>
-            </div>
+        <div className="border relative ">
+            <figure><img className="w-96 mx-auto h-60" src={foodImage} alt="" /></figure>
 
-            <div className="card-body">
+            <div className="card-body  ">
                 <h2 className="card-title">
-                    {foodName}
-                    <div className="badge badge-secondary">{DonatorName}</div>
+                    <span className=' text-lg text-red-600 rounded-md'> Food Name</span>: {foodName}
+
                 </h2>
-                <div className="card-actions justify-end">
-                    <div className="badge badge-outline">{ExpiredDate} days</div>
-                    <div className="badge badge-outline">{PickupLocation}</div>
-                    <div className="badge badge-outline">{FoodQuantity} people</div>
-                    <div className="badge badge-outline">{AdditionalNotes}</div>
+
+                <div className="avatar absolute right-9  ml-8">
+                    <div className="w-12 rounded-full">
+                        <img className='top-0' src={DonatorImage} />
+                    </div>
                 </div>
-                <Link to={`/SingleFooddetails/${_id}`}><button className='btn btn-primary'>View Detail </button></Link>
+                <div className=""> <span className='font-medium'>Donator Name </span>: {DonatorName}</div>
+
+                <div className="card-actions justify-end">
+                    <div className="badge badge-outline"> <span className='text-orange-700 font-medium'>Expired Date </span> : {ExpiredDate} days</div>
+                    <div className="badge badge-outline"> <span className='font-medium text-amber-600'>Pickup Location </span> : {PickupLocation}</div>
+                    <div className="badge badge-outline"><span className='font-medium text-lime-700'> Food Quantity </span> : {FoodQuantity} people</div>
+                    <div className="badge badge-outline"><span className='font-medium text-lime-700'>  FoodStatus </span> : {FoodStatus}</div>
+
+                </div>
+                <Link to={`/SingleFooddetails/${_id}`}><button className='btn btn-sm bg-red-600 text-white shadow-xl'>View Detail </button></Link>
             </div>
         </div>
     );

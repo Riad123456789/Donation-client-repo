@@ -4,13 +4,16 @@ import Navbar from "../component/Navbar";
 import FeaturedFoodCard from "../allcard/FeaturedFoodCard";
 import useAxios from "../hookes/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import img from '../assets/volunteer-holding-donation-box-with-food-hunger-people-different-grocery-products-homeless-people-shelter-solidarity-charity-concept_458444-228.webp'
+import { Helmet } from "react-helmet-async";
+
 
 const HomePage = () => {
-    
+
     const axios = useAxios()
 
     const getfoodData = async () => {
-        const res = await axios.get('/foodName?foodName=&sortField=FoodQuantity&sortOrder=desc')
+        const res = await axios.get('/foodName?FoodStatus=available&foodName=&sortField=FoodQuantity&sortOrder=desc')
         return res;
     }
 
@@ -22,20 +25,34 @@ const HomePage = () => {
     // console.log(data.data)
 
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className=" w-11/12 mx-auto">
+
+            <Helmet><title>  FOOD DONATION | HOME</title></Helmet>
+
+
             <Navbar></Navbar>
 
-            <div className="grid gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+                <img className="w-full h-[550px] mt-1" src={img} alt="" />
+
+            </div>
+
+            <div className=" p-7 mt-4 ">
+                <p className="text-center font-semibold text-3xl text-pink-700">Featured Foods</p>
+                <p className="text-center font-semibold p-2">Featured Foods represent the highest quantity of food options available.</p>
+            </div>
+
+
+            <div className=" w-full mx-auto mt-5 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {
                     data?.data?.slice(0, 6).map(singleData => <FeaturedFoodCard key={singleData._id} FooData={singleData}></FeaturedFoodCard>)
                 }
             </div>
 
-            <div className="text-center p-5">
-                <Link to={'/availablefoods'}> <button className="btn btn-primary">Show All</button></Link>
+            <div className="text-center p-8">
+                <Link to={'/availablefoods'}> <button className="btn btn-secondary btn-md">==== <span className="text-black">Show All</span> ====</button></Link>
             </div>
 
-            <Footer></Footer>
         </div>
     );
 };

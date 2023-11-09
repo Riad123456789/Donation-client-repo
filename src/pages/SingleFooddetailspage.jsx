@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import moment from 'moment';
+import { Helmet } from 'react-helmet-async';
 
 const SingleFooddetailspage = () => {
 
@@ -80,23 +81,33 @@ const SingleFooddetailspage = () => {
 
     return (
         <div>
+            <Helmet><title>  FOOD DONATION | SINGLE FOOD</title></Helmet>
+            <div className='w-11/12 mx-auto'>
+                <Navbar></Navbar>
+            </div>
+            <div className="card w-[700px] mx-auto m-9 bg-base-100 shadow-xl">
 
-            <Navbar></Navbar>
-            <div className="card w-96 mx-auto m-9 bg-base-100 shadow-xl">
-                <figure><img className="w-80 h-60" src={foodImage} alt="" /></figure>
+
+
+                <figure><img className="w-96 h-60" src={foodImage} alt="" /></figure>
                 <div className="avatar">
                 </div>
                 <div className="card-body">
                     <h2 className="card-title">
-                        {foodName}
-                        <div className="badge badge-secondary">{DonatorName}</div>
+                        Food Name : {foodName}
+                        <div className="badge badge-secondary">Donator Name: {DonatorName}</div>
                     </h2>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline">{ExpiredDate} days</div>
-                        <div className="badge badge-outline">{PickupLocation}</div>
+                        <div className="badge badge-outline">Exper date : {ExpiredDate} days</div>
+                        <div className="badge badge-outline"> Location:{PickupLocation}</div>
                         <div className="badge badge-outline">{FoodQuantity} people</div>
-                        <div className="badge badge-outline">{AdditionalNotes}</div>
+                        <div className="badge badge-outline">NOteS: {AdditionalNotes}</div>
                     </div>
+
+
+
+
+
 
 
                     <button className="btn" onClick={() => document.getElementById('my_modal_4').showModal()}>Request Button</button>
@@ -123,9 +134,14 @@ const SingleFooddetailspage = () => {
                             </div>
                         </div>
                     </dialog>
+
+
+
+
+
                 </div>
             </div>
-            <Footer></Footer>
+
         </div>
     );
 };

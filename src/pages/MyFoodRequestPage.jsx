@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import MyRequestCard from '../allcard/MyRequestCard';
 import Footer from '../component/Footer';
+import { Helmet } from 'react-helmet-async';
 
 const MyFoodRequestPage = () => {
 
@@ -24,6 +25,7 @@ const MyFoodRequestPage = () => {
 
     return (
         <div>
+            <Helmet><title>  FOOD DONATION | FOOD REQUEST</title></Helmet>
             <Navbar></Navbar>
             <div className='grid md:grid-cols-3 gap-5'>
                 {
@@ -31,7 +33,7 @@ const MyFoodRequestPage = () => {
                 }
             </div>
 
-            <Footer></Footer>
+
         </div>
     );
 };

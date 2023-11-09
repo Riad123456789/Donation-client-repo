@@ -3,6 +3,7 @@ import Footer from '../component/Footer';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const AddFoodPage = () => {
 
@@ -46,6 +47,7 @@ const AddFoodPage = () => {
 
     return (
         <div className='max-w-7xl mx-auto p-4'>
+            <Helmet><title>  FOOD DONATION | ADD FOOD</title></Helmet>
             <Navbar></Navbar>
 
             <form onSubmit={handleFormSubmit} className='border-2 p-8'>
@@ -92,12 +94,6 @@ const AddFoodPage = () => {
                 <button type="submit" className="text-white md:w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">ADD FOOD</button>
 
             </form>
-
-
-
-
-            <Footer></Footer>
-
         </div>
     );
 };

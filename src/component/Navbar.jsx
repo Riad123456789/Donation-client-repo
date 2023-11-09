@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import img from "../assets/FS-logo-small-applications-RGB.jpg"
+
 
 const Navbar = () => {
 
@@ -25,7 +27,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -35,7 +37,7 @@ const Navbar = () => {
                         {NavLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+               <img className='h-9 md:h-14' src={img} alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -45,14 +47,14 @@ const Navbar = () => {
             <div className="navbar-end">
 
 
-
+{/* 
                 {
                     user?.displayName ? <p className='  p-2 font-medium text-sm '>{user.displayName}</p> : <p></p>
-                }
+                } */}
 
 
                 {
-                    user?.photoURL ? <div className="w-10 p-1 border rounded-full">
+                    user?.photoURL ? <div className="w-12 p-1 border rounded-full">
                         <img className='rounded-full' src={user.photoURL} />
                     </div>
                         :
@@ -64,15 +66,13 @@ const Navbar = () => {
 
                 {
 
-                    user ? <button onClick={handleLogout} className="btn btn-sm">sing out</button>
+                    user ? <button onClick={handleLogout} className="btn btn-sm bg-emerald-800 text-white">sing out</button>
                         :
-                        <button className="btn btn-sm"><Link to={"/login"}>login</Link></button>
+                        <button className="btn btn-sm bg-emerald-800"><Link to={"/login"}>login</Link></button>
                 }
 
-
-
-
             </div>
+           
         </div>
     );
 };

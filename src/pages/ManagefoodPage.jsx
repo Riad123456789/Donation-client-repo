@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import ReactTableCard from '../allcard/ReactTableCard';
+import { Helmet } from 'react-helmet-async';
 
 
 const ManagefoodPage = () => {
@@ -25,19 +26,22 @@ const ManagefoodPage = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
+            <Helmet><title>  FOOD DONATION | MANAGE FOOD</title></Helmet>
+            <div className='w-11/12 mx-auto'>
+                <Navbar></Navbar>
+            </div>
 
 
-            <div className="overflow-x-auto">
+            <div className=" mx-auto  p-28 border">
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        {/* <tr>
                             <th>Name</th>
                             <th>Job</th>
                             <th>Favorite Color</th>
                             <th></th>
-                        </tr>
+                        </tr> */}
                     </thead>
                     <tbody>
                         <div>
@@ -50,7 +54,7 @@ const ManagefoodPage = () => {
 
             </div>
 
-            <Footer></Footer>
+
         </div>
     );
 };

@@ -14,6 +14,7 @@ import ManageSingleFoodPage from "../pages/ManageSingleFoodPage";
 import MyFoodRequestPage from "../pages/MyFoodRequestPage";
 import EditPage from "../pages/EditPage";
 import Errorpage from "../pages/Errorpage";
+import PrivateRoute from "../Privatedroute/PrivateRoute";
 
 
 const Router = createBrowserRouter([
@@ -28,7 +29,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/addfood",
-                element: <AddFoodPage></AddFoodPage>,
+                element: <PrivateRoute><AddFoodPage></AddFoodPage></PrivateRoute>,
                 errorElement: <Errorpage></Errorpage>
             },
             {
@@ -40,32 +41,32 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/SingleFooddetails/:id",
-                element: <SingleFooddetailspage></SingleFooddetailspage>,
+                element: <PrivateRoute><SingleFooddetailspage></SingleFooddetailspage></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/FeaturedFoodss/${params.id}`),
                 errorElement: <Errorpage></Errorpage>
 
             },
             {
                 path: "/ManagefoodPage",
-                element: <ManagefoodPage></ManagefoodPage>,
+                element: <PrivateRoute> <ManagefoodPage></ManagefoodPage></PrivateRoute>,
                 errorElement: <Errorpage></Errorpage>
 
 
             },
             {
                 path: '/manage/:id',
-                element: <ManageSingleFoodPage></ManageSingleFoodPage>,
+                element: <PrivateRoute><ManageSingleFoodPage></ManageSingleFoodPage></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/RequestFood/${params.id}`),
                 errorElement: <Errorpage></Errorpage>
             },
             {
                 path: '/Myfoodrequest',
-                element: <MyFoodRequestPage></MyFoodRequestPage>,
+                element: <PrivateRoute><MyFoodRequestPage></MyFoodRequestPage></PrivateRoute>,
                 errorElement: <Errorpage></Errorpage>
             },
             {
                 path: "/EditPage/:id",
-                element: <EditPage></EditPage>,
+                element: <PrivateRoute><EditPage></EditPage></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/FeaturedFoodss/${params.id}`),
                 errorElement: <Errorpage></Errorpage>
             },

@@ -24,49 +24,43 @@ const RequesterInformationcard = ({ info, refetch }) => {
     } = info
 
 
-    // console.log(FoodId)
+    console.log(DonatorEmail , RequesterEmail)
 
-
-
-    const handlestatas = (_id, FoodId) => {
-        const ubdateFood = {
-            FoodStatus: "deleverd",
+    const handleStatus = (_id) => {
+        const updateFood = {
+            FoodStatus: "delivered",
         }
         fetch(`http://localhost:5000/RequestFood/${_id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(ubdateFood)
+            body: JSON.stringify(updateFood)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
 
                 if (data.modifiedCount > 0) {
-                    toast.success("successfully delivered")
+                    toast.success("Successfully delivered")
 
+                    axios.delete(`http://localhost:5000/RequestFood/${_id}`)
+                        .then(res => {
+                            // console.log(res.data)
 
-                    if (data.modifiedCount > 0) {
-                        axios.delete(`http://localhost:5000/FeaturedFoods/deleted/${FoodId}`)
-                            .then(res => {
-                                console.log(res.data)
+                            if (res?.data?.deletedCount > 0) {
+                                // toast.success('Deleted successfully')
+                            }
 
-                                if (res?.data?.deletedCount > 0) {
-                                    toast.success('deleted successfully')
-                                }
+                        
+                    
+                        })
 
-                            })
-                    }
-
-
-
+                     
                 }
 
                 refetch()
-            })
-
-
+            });
     }
 
 
@@ -109,7 +103,7 @@ const RequesterInformationcard = ({ info, refetch }) => {
                             </td>
 
                             <th>
-                                <button onClick={() => handlestatas(_id)} className="btn btn-primary btn-xs">{FoodStatus}</button>
+                                <button onClick={() => handleStatus(_id)} className="btn btn-primary btn-xs">{FoodStatus}</button>
                             </th>
                         </tr>
                     </tbody>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import { useContext, useState } from "react";
@@ -10,6 +10,9 @@ const LoginPage = () => {
 
     const { LoginUser } = useContext(AuthContext)
     const [showpassword, setshowpassword] = useState(false)
+    const navigate = useNavigate();
+    const Location = useLocation();
+
 
 
     const HandleLogin = (e) => {
@@ -24,6 +27,7 @@ const LoginPage = () => {
         LoginUser(email, password)
             .then(() => {
                 toast.success("successfully login")
+                navigate(Location?.state ? Location.state : "/")
             })
             .catch(error => {
                 toast.error(error.message.slice(10, 48));
@@ -73,7 +77,7 @@ const LoginPage = () => {
                 </div>
             </div>
 
-            <Footer></Footer>
+          
         </div>
     );
 };
