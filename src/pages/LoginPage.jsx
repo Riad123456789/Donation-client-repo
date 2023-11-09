@@ -14,9 +14,9 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const Location = useLocation();
 
-    if (loading) {
-        return <span className="loading loading-spinner loading-md "></span>
-    }
+    // if (loading) {
+    //     return <span className="loading loading-spinner loading-md "></span>
+    // }
 
 
 

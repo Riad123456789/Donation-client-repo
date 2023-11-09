@@ -101,7 +101,7 @@ const SingleFooddetailspage = () => {
                         <div className="badge badge-outline">Exper date : {ExpiredDate} days</div>
                         <div className="badge badge-outline"> Location:{PickupLocation}</div>
                         <div className="badge badge-outline">{FoodQuantity} people</div>
-                        <div className="badge badge-outline">NOteS: {AdditionalNotes}</div>
+                        <div className="p-3">Additional Notes : {AdditionalNotes}</div>
                     </div>
 
 
