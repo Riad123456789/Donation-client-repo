@@ -56,12 +56,13 @@ const Router = createBrowserRouter([
             {
                 path: '/manage/:id',
                 element: <PrivateRoute><ManageSingleFoodPage></ManageSingleFoodPage></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/RequestFood/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/FeaturedFoodss/${params.id}`),
                 errorElement: <Errorpage></Errorpage>
             },
             {
                 path: '/Myfoodrequest',
                 element: <PrivateRoute><MyFoodRequestPage></MyFoodRequestPage></PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/requestedFood'),
                 errorElement: <Errorpage></Errorpage>
             },
             {

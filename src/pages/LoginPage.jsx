@@ -5,13 +5,19 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import { Helmet } from "react-helmet-async";
 
 const LoginPage = () => {
 
-    const { LoginUser } = useContext(AuthContext)
+    const { LoginUser,loading } = useContext(AuthContext)
     const [showpassword, setshowpassword] = useState(false)
     const navigate = useNavigate();
     const Location = useLocation();
+
+    if (loading) {
+        return <span className="loading loading-spinner loading-md "></span>
+    }
+
 
 
 
@@ -38,6 +44,7 @@ const LoginPage = () => {
     return (
 
         <div>
+            <Helmet><title>FOOD DONATION | LOGIN</title></Helmet>
             <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
 
@@ -70,7 +77,7 @@ const LoginPage = () => {
                                 <button className="btn btn-primary">Login</button>
                             </div>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Do not have an account? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500"><Link to={"/register"}>register here</Link></a>
+                                Do not have an account? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500"><Link to={"/register"}><span className="text-blue-600">register here</span></Link></a>
                             </p>
                         </form>
                     </div>

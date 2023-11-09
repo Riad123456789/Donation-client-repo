@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import ReactTableCard from '../allcard/ReactTableCard';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 
 const ManagefoodPage = () => {
@@ -23,6 +24,8 @@ const ManagefoodPage = () => {
         queryFn: ManageFood,
     })
 
+
+// console.log(data.data)
 
     return (
         <div>
@@ -53,8 +56,6 @@ const ManagefoodPage = () => {
                 </table>
 
             </div>
-
-
         </div>
     );
 };

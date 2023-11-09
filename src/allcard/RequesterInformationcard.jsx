@@ -1,7 +1,12 @@
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../provider/AuthProvider';
 
-const RequesterInformationcard = ({ info, refetch }) => {
+const RequesterInformationcard = ({ fooditem, refetch, isFetching, isLoading }) => {
+
+
 
     const {
         _id,
@@ -21,16 +26,17 @@ const RequesterInformationcard = ({ info, refetch }) => {
         DonationMoney,
         FoodStatus,
         RequestDate,
-    } = info
+    } = fooditem
 
 
-    console.log(DonatorEmail , RequesterEmail)
+    // console.log(fooditem)
 
-    const handleStatus = (_id) => {
+
+    const handleStatus = (FoodId) => {
         const updateFood = {
             FoodStatus: "delivered",
         }
-        fetch(`http://localhost:5000/RequestFood/${_id}`, {
+        fetch(`http://localhost:5000/FeaturedFoods/${FoodId}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
@@ -43,34 +49,25 @@ const RequesterInformationcard = ({ info, refetch }) => {
 
                 if (data.modifiedCount > 0) {
                     toast.success("Successfully delivered")
-
-                    axios.delete(`http://localhost:5000/RequestFood/${_id}`)
-                        .then(res => {
-                            // console.log(res.data)
-
-                            if (res?.data?.deletedCount > 0) {
-                                // toast.success('Deleted successfully')
-                            }
-
-                        
-                    
-                        })
-
-                     
                 }
 
+
                 refetch()
+
             });
+
     }
 
-
+    if (isLoading || isFetching) {
+        return <p>Loading.......</p>
+    }
 
 
     return (
         <div>
             <div className="overflow-x-auto">
                 <table className="table">
-                    {/* head */}
+
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -80,7 +77,7 @@ const RequesterInformationcard = ({ info, refetch }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
+
                         <tr>
 
                             <td>
@@ -98,12 +95,11 @@ const RequesterInformationcard = ({ info, refetch }) => {
                             </td>
                             <td>
 
-
                                 <span className="badge badge-ghost badge-sm">{RequestDate}</span>
                             </td>
 
                             <th>
-                                <button onClick={() => handleStatus(_id)} className="btn btn-primary btn-xs">{FoodStatus}</button>
+                                <button onClick={() => handleStatus(FoodId)} className="btn btn-primary btn-xs">{FoodStatus}</button>
                             </th>
                         </tr>
                     </tbody>

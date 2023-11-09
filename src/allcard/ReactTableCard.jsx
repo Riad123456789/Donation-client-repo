@@ -17,6 +17,8 @@ const ReactTableCard = ({ cardData, refetch }) => {
         PickupLocation,
         FoodStatus,
 
+        
+
     } = cardData
 
 
@@ -62,7 +64,7 @@ const ReactTableCard = ({ cardData, refetch }) => {
                     <th>
                         <button onClick={() => handeldeleted(_id)} className="btn btn-primary btn-xs">Delete</button>
                         <Link to={`/EditPage/${_id}`}> <button className="btn btn-primary btn-xs">edit</button></Link>
-                        <Link to={'/manage/:id'}> <button className='btn btn-xs btn-primary'>Manage</button></Link>
+                        <Link to={`/manage/${_id}`}> <button className='btn btn-xs btn-primary'>Manage</button></Link>
                     </th>
                 </tr>
             </tbody>

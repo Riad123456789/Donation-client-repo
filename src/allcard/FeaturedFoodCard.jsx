@@ -44,7 +44,10 @@ const FeaturedFoodCard = ({ FooData }) => {
                     <div className="badge badge-outline"><span className='font-medium text-lime-700'>  FoodStatus </span> : {FoodStatus}</div>
 
                 </div>
+              
+              
                 <Link to={`/SingleFooddetails/${_id}`}><button className='btn btn-sm bg-red-600 text-white shadow-xl'>View Detail </button></Link>
+            
             </div>
         </div>
     );

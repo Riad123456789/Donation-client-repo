@@ -5,15 +5,22 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import { Helmet } from "react-helmet-async";
 
 
 
 
 const RegisterPage = () => {
 
-    const { CreatUser, googleLogin, handleupdateProfile } = useContext(AuthContext);
+    const { CreatUser, googleLogin, handleupdateProfile ,loading } = useContext(AuthContext);
     const [showpassword, setshowpassword] = useState(false)
     const navigat = useNavigate();
+
+
+    if (loading) {
+        return <span className="loading loading-spinner loading-md "></span>
+    }
+
 
 
     const HandelSubmit = (e) => {
@@ -71,6 +78,8 @@ const RegisterPage = () => {
 
     return (
         <div>
+
+            <Helmet><title>FOOD DONATION | REGISTER</title></Helmet>
             <Navbar></Navbar>
             <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -119,7 +128,7 @@ const RegisterPage = () => {
                             <button onClick={() => handleGoogle(googleLogin)} type="submit" className="w-full btn  text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"> google</button>
 
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Already have an account? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500"><Link to={"/login"}>Login here</Link></a>
+                                Already have an account? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500"><Link to={"/login"}><span className="text-blue-700">Login here</span></Link></a>
                             </p>
                         </div>
                     </div>

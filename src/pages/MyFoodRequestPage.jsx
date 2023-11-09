@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Navbar from '../component/Navbar';
 import { AuthContext } from '../provider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import MyRequestCard from '../allcard/MyRequestCard';
-import Footer from '../component/Footer';
+
 import { Helmet } from 'react-helmet-async';
 
 const MyFoodRequestPage = () => {
