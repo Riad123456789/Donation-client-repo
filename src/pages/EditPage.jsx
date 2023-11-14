@@ -41,7 +41,7 @@ const EditPage = () => {
         }
 
 
-        fetch(`   https://y-hxh52ul9g-riads-projects-d9eea291.vercel.app/FeaturedFoods/Ubdate/${_id}`, {
+        fetch(`   https://y-roan-one.vercel.app/FeaturedFoods/Ubdate/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

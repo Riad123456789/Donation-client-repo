@@ -12,7 +12,7 @@ const MyFoodRequestPage = () => {
     const { user } = useContext(AuthContext)
 
     const ManageFood = async () => {
-        const res = await axios.get(`   https://y-hxh52ul9g-riads-projects-d9eea291.vercel.app/requestedFood/request?RequesterEmail=${user?.email}`)
+        const res = await axios.get(`   https://y-roan-one.vercel.app/requestedFood/request?RequesterEmail=${user?.email}`)
         return res;
     }
     const { data, isLoading, refetch } = useQuery({

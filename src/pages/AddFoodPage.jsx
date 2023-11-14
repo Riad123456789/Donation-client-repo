@@ -27,7 +27,7 @@ const AddFoodPage = () => {
         }
 
 
-        fetch('   https://y-hxh52ul9g-riads-projects-d9eea291.vercel.app/AddFood', {
+        fetch('   https://y-roan-one.vercel.app/AddFood', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

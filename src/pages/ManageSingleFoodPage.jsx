@@ -29,7 +29,7 @@ const ManageSingleFoodPage = () => {
     // console.log(info)
 
     const ManageFood = async () => {
-        const res = await axios.get(`https://y-hxh52ul9g-riads-projects-d9eea291.vercel.app/requestedFood/id?FoodId=${_id}`)
+        const res = await axios.get(`https://y-roan-one.vercel.app/requestedFood/id?FoodId=${_id}`)
         return res;
     }
     const { data, refetch,isFetching,isLoading } = useQuery({

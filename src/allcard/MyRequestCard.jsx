@@ -29,7 +29,7 @@ const MyRequestCard = ({ myrequestData, refetch }) => {
     const handleCancel = (RequesterEmail) => {
         // console.log(DonatorEmail)
 
-        axios.delete(`   https://y-hxh52ul9g-riads-projects-d9eea291.vercel.app//RequestFood/deleted/${RequesterEmail}`)
+        axios.delete(`   https://y-roan-one.vercel.app/RequestFood/deleted/${RequesterEmail}`)
             .then(res => {
                 console.log(res.data)
 
