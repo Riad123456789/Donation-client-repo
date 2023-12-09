@@ -1,8 +1,23 @@
-# React + Vite
+## Poject Name : ( Matrimony Services )
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features Overview : 
+  - you can find your life partner from my website .
+  - first you can  create your own your biodata here and your created biodata   can see other people .
+  - you can choose your life partner by filtering age and division and gander
+  - on this site  for other  contact information you need to pay some money and then you can see other contact information
 
-Currently, two official plugins are available:
+# Technology :
+### Front-End :
+   - Material UI
+### CSS-Framework :
+   - Tailwind CSS
+### Back-End :
+  - Node.js
+  - Express
+### Database :   
+  - MongoDB
+  - Mongoose
+### Payment-Processor :
+  - Stripe Connect
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live link : https://assignment-12-project.web.app](https://assignment11-project.web.app)https://assignment11-project.web.app
