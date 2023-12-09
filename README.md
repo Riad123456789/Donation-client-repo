@@ -1,14 +1,14 @@
-## Poject Name : ( Matrimony Services )
+## Poject Name : ( food Donation )
 
 ## Features Overview : 
-  - you can find your life partner from my website .
-  - first you can  create your own your biodata here and your created biodata   can see other people .
-  - you can choose your life partner by filtering age and division and gander
-  - on this site  for other  contact information you need to pay some money and then you can see other contact information
+  - you can donation your wested food here .
+  - and also you can buy another wasted food if you interest donate some money you can give the other person donate some money
+  - if you interest the food you can request first the food owner
+
 
 # Technology :
 ### Front-End :
-   - Material UI
+   - Daisy UI
 ### CSS-Framework :
    - Tailwind CSS
 ### Back-End :
@@ -16,8 +16,5 @@
   - Express
 ### Database :   
   - MongoDB
-  - Mongoose
-### Payment-Processor :
-  - Stripe Connect
 
-## Live link : https://assignment-12-project.web.app](https://assignment11-project.web.app)https://assignment11-project.web.app
+## Live link :  https://assignment10-project-3a4fc.web.app/My%20Cart
